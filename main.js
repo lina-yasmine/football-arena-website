@@ -177,11 +177,11 @@ function showResults(count) {
     bullets.remove();
 
     if (rightAnswers > count / 2 && rightAnswers < count) {
-      theResults = `<span class="good">Good</span>, ${rightAnswers} From ${count}`;
+      theResults = `<span class="bien">Bien joué , Vous avez répondu juste a la majorité des questions ! </span>, ${rightAnswers}/${count}`;
     } else if (rightAnswers === count) {
-      theResults = `<span class="perfect">Perfect</span>, All Answers Is Good`;
+      theResults = `<span class="parfait">Parfait</span> , Vous avez répondu correctement a toutes les questions !`;
     } else {
-      theResults = `<span class="bad">Bad</span>, ${rightAnswers} From ${count}`;
+      theResults = `<span class="mauvais">Mauvais score </span> , ${rightAnswers}/${count}`;
     }
 
     resultsContainer.innerHTML = theResults;
