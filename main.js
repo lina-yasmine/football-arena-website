@@ -19,16 +19,16 @@ function getQuestions() {
   myRequest.onreadystatechange = function () {
     if (this.readyState === 4 && this.status === 200) {
       let questionsObject = JSON.parse(this.responseText);
-      let qCount = questionsObject.length;
+      let qCpt = questionsObject.length;
  
       // Create Bullets + Set Questions Count
-      createBullets(qCount);
+      createBullets(qCpt);
 
       // Add Question Data
-      addQuestionData(questionsObject[currentIndex], qCount);
+      addQuestionData(questionsObject[currentIndex], qCpt);
 
       // Start CountDown
-      countdown(10, qCount);
+      countdown(10, qCpt);
 
       // Click On Submit
       submitButton.onclick = () => {
@@ -39,24 +39,24 @@ function getQuestions() {
         currentIndex++;
 
         // Check The Answer
-        checkAnswer(theRightAnswer, qCount);
+        checkAnswer(theRightAnswer);
 
         // Remove Previous Question
         quizArea.innerHTML = "";
         answersArea.innerHTML = "";
 
         // Add Question Data
-        addQuestionData(questionsObject[currentIndex], qCount);
+        addQuestionData(questionsObject[currentIndex], qCpt);
 
         // Handle Bullets Class
         handleBullets();
 
         // Start CountDown
         clearInterval(countdownInterval);
-        countdown(10, qCount);
+        countdown(10, qCpt);
 
         // Show Results
-        showResults(qCount);
+        showResults(qCpt);
       };
     }
   };
@@ -143,7 +143,7 @@ function addQuestionData(obj, count) {
   }
 }
 
-function checkAnswer(rAnswer, count) {
+function checkAnswer(rAnswer) {
   let answers = document.getElementsByName("question");
   let theChoosenAnswer;
 
@@ -168,42 +168,43 @@ function handleBullets() {
   });
 }
 
-function showResults(count) {
+function showResults(cpt) {
   let theResults;
-  if (currentIndex === count) {
+  if (currentIndex === cpt) {
     quizArea.remove();
     answersArea.remove();
     submitButton.remove();
     bullets.remove();
 
-    if (rightAnswers > count / 2 && rightAnswers < count) {
-      theResults = `<span class="bien">Bien joué , Vous avez répondu juste a la majorité des questions ! </span>, ${rightAnswers}/${count}`;
-    } else if (rightAnswers === count) {
+    if (rightAnswers > cpt / 2 && rightAnswers < cpt) {
+      theResults = `<span class="bien">Bien joué , Vous avez répondu juste a la majorité des questions ! </span>, ${rightAnswers}/${cpt}`;
+    } else if (rightAnswers === cpt) {
       theResults = `<span class="parfait">Parfait</span> , Vous avez répondu correctement a toutes les questions !`;
     } else {
-      theResults = `<span class="mauvais">Mauvais score </span> , ${rightAnswers}/${count}`;
+      theResults = `<span class="mauvais">Mauvais score </span> , ${rightAnswers}/${cpt}`;
     }
 
     resultsContainer.innerHTML = theResults;
     resultsContainer.style.padding = "10px";
     resultsContainer.style.backgroundColor = "white";
     resultsContainer.style.marginTop = "10px";
+
   }
 }
 
-function countdown(duration, count) {
-  if (currentIndex < count) {
-    let minutes, seconds;
+function countdown(duree, cpt) {
+  if (currentIndex < cpt) {
+    let min, sec;
     countdownInterval = setInterval(function () {
-      minutes = parseInt(duration / 60);
-      seconds = parseInt(duration % 60);
+      min = parseInt(duree / 60);
+      sec = parseInt(duree % 60);
 
-      minutes = minutes < 10 ? `0${minutes}` : minutes;
-      seconds = seconds < 10 ? `0${seconds}` : seconds;
+      min = min < 10 ? `0${min}` : min;
+      sec = sec < 10 ? `0${sec}` : sec;
 
-      countdownElement.innerHTML = `${minutes}:${seconds}`;
+      countdownElement.innerHTML = `${min}:${sec}`;
 
-      if (--duration < 0) {
+      if (--duree < 0) {
         clearInterval(countdownInterval);
         submitButton.click();
       }
