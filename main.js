@@ -7,11 +7,70 @@ let answersArea = document.querySelector(".answers-area");
 let submitButton = document.querySelector(".submit-button");
 let resultsContainer = document.querySelector(".results");
 let countdownElement = document.querySelector(".countdown");
+let repButton = document.querySelector(".repbutton");
+let quitterButton = document.querySelector(".quitterbutton");
+
 
 // Set Options
 let currentIndex = 0;
 let rightAnswers = 0;
 let countdownInterval;
+
+
+var rep = { "reponses" : [
+	{
+		"id" : 1,
+		"status": "faux",
+    "repChoisi" : ""
+	},
+	{
+		"id" : 2,
+		"status": "faux",
+    "repChoisi" : ""
+	},
+	{
+		"id" : 3,
+		"status": "faux",
+    "repChoisi" : ""
+	},
+	{
+		"id" : 4,
+		"status": "faux",
+    "repChoisi" : ""
+	},
+	{
+		"id" : 5,
+		"status": "faux",
+    "repChoisi" : ""
+	},
+	{
+		"id" : 6,
+		"status": "faux",
+    "repChoisi" : ""
+	},
+	{
+		"id" : 7,
+		"status": "faux",
+    "repChoisi" : ""
+	},
+	{
+		"id" : 8,
+		"status": "faux",
+    "repChoisi" : ""
+	},
+	{
+		"id" : 9,
+		"status": "faux",
+    "repChoisi" : ""
+	},
+	{
+		"id" : 10,
+		"status": "faux",
+    "repChoisi" : ""
+	},
+
+	]
+}
 
 function getQuestions() {
   let myRequest = new XMLHttpRequest();
@@ -32,6 +91,8 @@ function getQuestions() {
 
       // Click On Submit
       submitButton.onclick = () => {
+        
+        let i = currentIndex;
         // Get Right Answer
         let theRightAnswer = questionsObject[currentIndex].right_answer;
 
@@ -39,7 +100,8 @@ function getQuestions() {
         currentIndex++;
 
         // Check The Answer
-        checkAnswer(theRightAnswer);
+    
+        checkAnswer(theRightAnswer,i);
 
         // Remove Previous Question
         quizArea.innerHTML = "";
@@ -57,6 +119,8 @@ function getQuestions() {
 
         // Show Results
         showResults(qCpt);
+        
+    
       };
     }
   };
@@ -143,19 +207,25 @@ function addQuestionData(obj, count) {
   }
 }
 
-function checkAnswer(rAnswer) {
+function checkAnswer(rAnswer,currentIndex) {
   let answers = document.getElementsByName("question");
   let theChoosenAnswer;
-
   for (let i = 0; i < answers.length; i++) {
     if (answers[i].checked) {
       theChoosenAnswer = answers[i].dataset.answer;
+      console.log("le i",i)
+      rep.reponses[currentIndex].repChoisi=i;
+      
     }
   }
 
   if (rAnswer === theChoosenAnswer) {
-    rightAnswers++;
-  }
+   rep.reponses[currentIndex].status= "correct";
+   rightAnswers++;
+  } 
+ 
+  console.log("index",currentIndex);
+  
 }
 
 function handleBullets() {
@@ -181,14 +251,16 @@ function showResults(cpt) {
     } else if (rightAnswers === cpt) {
       theResults = `<span class="parfait">Parfait</span> , Vous avez répondu correctement a toutes les questions !`;
     } else {
-      theResults = `<span class="mauvais">Mauvais score </span> , ${rightAnswers}/${cpt}`;
+      theResults = `<span class="mauvais">Mauvais score , Vous avez eu </span> : ${rightAnswers}/${cpt}`;
     }
-
+  for (let i = 0; i <= 10; i++) {
+        console.log(rep.reponses[i]);
+      }
     resultsContainer.innerHTML = theResults;
-    resultsContainer.style.padding = "10px";
+    resultsContainer.style.padding = "20px";
     resultsContainer.style.backgroundColor = "white";
-    resultsContainer.style.marginTop = "10px";
-
+    resultsContainer.style.margin = "20px";
+    resultsContainer.innerHTML +='<div class="buttons"> <button class="repbutton">Mes réponses </button> <button class="quitterbutton"> Rejouer </button></div>' ;
   }
 }
 
@@ -211,3 +283,4 @@ function countdown(duree, cpt) {
     }, 1000);
   }
 }
+

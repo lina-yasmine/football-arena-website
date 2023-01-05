@@ -7,7 +7,7 @@
 body {
   /* font-family: Tahoma, Arial; */
   font-family: 'Poppins', sans-serif;
-  background-color: #184E77;
+  background-color: rgb(5,33,56);
   background-image : url("5205447.jpg") ;
   background-size:cover;
   /* background-image: linear-gradient(315deg, #184E77 0%, #34A0A4 100%); */
@@ -112,6 +112,51 @@ input[type="Radio"]
 }
 .quiz-app .results span.parfait {
   color: #0075ff;
+}
+
+/* .results 
+{
+background: rgb(183, 18, 18);
+border-radius: 5px;
+display: flex;
+padding: 25px 30px;
+width: 450px;
+align-items: center;
+flex-direction: column;
+justify-content: center;
+transform: translate(-50%, -50%) scale(0.9);
+opacity: 0;
+pointer-events: none;
+transition: all 0.3s ease;
+} */
+
+  .repbutton , .quitterbutton {
+   margin: 0 10px;
+   height: 45px;
+   padding: 0 20px;
+   font-size: 18px;
+   font-weight: 500;
+   cursor: pointer;
+   border: none;
+   outline: none;
+   border-radius: 6px;
+   border: 1px solid #007bff;
+   transition: all 0.3s ease;
+}
+.quitterbutton{
+  color: #007bff;
+    background: #fff;
+}
+.quitterbutton:hover{
+  color: #fff;
+  background: #007bff;
+}
+.repbutton{
+  color: #fff;
+   background: #007bff; 
+}
+.repbutton:hover{
+  background: #0263ca;
 }
 
 nav{
