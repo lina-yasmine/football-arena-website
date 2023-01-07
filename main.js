@@ -7,11 +7,10 @@ let answersArea = document.querySelector(".answers-area");
 let submitButton = document.querySelector(".submit-button");
 let resultsContainer = document.querySelector(".results");
 let countdownElement = document.querySelector(".countdown");
-let repButton = document.querySelector(".repbutton");
-let quitterButton = document.querySelector(".quitterbutton");
+// let repButton = document.querySelector(".repbutton");
+// let quitterButton = document.querySelector(".quitterbutton");
 
 
-// Set Options
 let currentIndex = 0;
 let rightAnswers = 0;
 let countdownInterval;
@@ -21,52 +20,52 @@ var rep = { "reponses" : [
 	{
 		"id" : 1,
 		"status": "faux",
-    "repChoisi" : ""
+    "repChoisi" : "",
 	},
 	{
 		"id" : 2,
 		"status": "faux",
-    "repChoisi" : ""
+    "repChoisi" : "",
 	},
 	{
 		"id" : 3,
 		"status": "faux",
-    "repChoisi" : ""
+    "repChoisi" : "",
 	},
 	{
 		"id" : 4,
 		"status": "faux",
-    "repChoisi" : ""
+    "repChoisi" : "",
 	},
 	{
 		"id" : 5,
 		"status": "faux",
-    "repChoisi" : ""
+    "repChoisi" : "",
 	},
 	{
 		"id" : 6,
 		"status": "faux",
-    "repChoisi" : ""
+    "repChoisi" : "",
 	},
 	{
 		"id" : 7,
 		"status": "faux",
-    "repChoisi" : ""
+    "repChoisi" : "",
 	},
 	{
 		"id" : 8,
 		"status": "faux",
-    "repChoisi" : ""
+    "repChoisi" : "",
 	},
 	{
 		"id" : 9,
 		"status": "faux",
-    "repChoisi" : ""
+    "repChoisi" : "",
 	},
 	{
 		"id" : 10,
 		"status": "faux",
-    "repChoisi" : ""
+    "repChoisi" : "",
 	},
 
 	]
@@ -101,7 +100,7 @@ function getQuestions() {
 
         // Check The Answer
     
-        checkAnswer(theRightAnswer,i);
+        checkAnswer(questionsObject,theRightAnswer,i);
 
         // Remove Previous Question
         quizArea.innerHTML = "";
@@ -119,17 +118,24 @@ function getQuestions() {
 
         // Show Results
         showResults(qCpt);
+        showAnswers(questionsObject , qCpt , currentIndex);
         
-    
       };
+     
+    //   quitterButton.onclick = () => {
+    //   showAnswers(questionsObject);
+    // }
     }
+    
   };
 
   myRequest.open("GET", "html_questions.json", true);
   myRequest.send();
+  // showAnswers(qCpt);
 }
 
 getQuestions();
+
 
 function createBullets(num) {
   countSpan.innerHTML = num;
@@ -207,14 +213,17 @@ function addQuestionData(obj, count) {
   }
 }
 
-function checkAnswer(rAnswer,currentIndex) {
+function checkAnswer(questionsObject,rAnswer,currentIndex) {
   let answers = document.getElementsByName("question");
   let theChoosenAnswer;
+   
   for (let i = 0; i < answers.length; i++) {
     if (answers[i].checked) {
       theChoosenAnswer = answers[i].dataset.answer;
       console.log("le i",i)
-      rep.reponses[currentIndex].repChoisi=i;
+      rep.reponses[currentIndex].repChoisi=answers[i].dataset.answer;
+      // rep.reponses[currentIndex].rAnswer=rAnswer;
+      // rep.reponses[currentIndex].question=questionsObject[currentIndex].title;
       
     }
   }
@@ -245,7 +254,8 @@ function showResults(cpt) {
     answersArea.remove();
     submitButton.remove();
     bullets.remove();
-
+let titre ;
+titre = `<h1> <p>Resultats</p> <h2>`;
     if (rightAnswers > cpt / 2 && rightAnswers < cpt) {
       theResults = `<span class="bien">Bien joué , Vous avez répondu juste a la majorité des questions ! </span>, ${rightAnswers}/${cpt}`;
     } else if (rightAnswers === cpt) {
@@ -256,11 +266,17 @@ function showResults(cpt) {
   for (let i = 0; i <= 10; i++) {
         console.log(rep.reponses[i]);
       }
-    resultsContainer.innerHTML = theResults;
+    resultsContainer.innerHTML = titre + theResults;
     resultsContainer.style.padding = "20px";
     resultsContainer.style.backgroundColor = "white";
     resultsContainer.style.margin = "20px";
-    resultsContainer.innerHTML +='<div class="buttons"> <button class="repbutton">Mes réponses </button> <button class="quitterbutton"> Rejouer </button></div>' ;
+    resultsContainer.style.marginTop = "0px";
+
+  
+
+    // resultsContainer.innerHTML +='<div class="buttons"> <button class="repbutton">Mes réponses </button> <button class="quitterbutton"> Rejouer </button></div>' ;
+  
+    
   }
 }
 
@@ -282,5 +298,30 @@ function countdown(duree, cpt) {
       }
     }, 1000);
   }
+}
+
+
+
+function showAnswers(questionsObject , cpt , currentIndex) {
+
+  if (currentIndex === cpt) {
+    quizArea.remove();
+    answersArea.remove();
+    submitButton.remove();
+    bullets.remove();
+   for (let i = 0; i <= questionsObject.length; i++) {
+  resultsContainer.innerHTML+= "<br>"+"<strong>Question</strong> " + i +" : "+questionsObject[i].title +  "<br>";
+  resultsContainer.innerHTML+= "<span> La réponse correcte : </span>"+ questionsObject[i].right_answer + "<br>";
+
+  if(rep.reponses[i].status == "faux") {
+    res = '<span class="wrong">' +" fausse" + '</span><i class="fa fa-remove c-wrong"></i>';
+} else {
+  res = '<span class="correct">' +" juste" + '</span><i class="fa fa-check c-correct"></i>';
+}
+  resultsContainer.innerHTML+= "<span>votre réponse est :  </span>"+ rep.reponses[i].repChoisi +' '+res+ "<br>";
+}
+    
+  }
+ 
 }
 
