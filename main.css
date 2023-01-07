@@ -160,19 +160,27 @@ nav ul li a:hover{
 	background-color:  rgb(96,215,166);
 }
  .results span.wrong {
-  margin-left: 20px;
   color:#dc0a0a;
 }
 .results span.correct {
-  margin-left: 20px;
   color:#00e676;
 }
 .results span {
   color:gray;
 }
-
-
-
+.c-wrong {
+  margin-left: 20px;
+  color: #dc0a0a;
+}
+.c-correct {
+  margin-left: 20px;
+  color: #00e676;
+}
+ #acc
+{
+  background-image: url("banner.png");
+  overflow: scroll;
+}
  /* .repbutton , .quitterbutton {
    margin: 0 10px;
    height: 45px;

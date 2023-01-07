@@ -257,9 +257,9 @@ function showResults(cpt) {
 let titre ;
 titre = `<h1> <p>Resultats</p> <h2>`;
     if (rightAnswers > cpt / 2 && rightAnswers < cpt) {
-      theResults = `<span class="bien">Bien joué , Vous avez répondu juste a la majorité des questions ! </span>, ${rightAnswers}/${cpt}`;
+      theResults = `<span class="bien">Bien joué , Vous avez répondu correctement à la majorité des questions !<br>Votre score : </span> ${rightAnswers}/${cpt}`;
     } else if (rightAnswers === cpt) {
-      theResults = `<span class="parfait">Parfait</span> , Vous avez répondu correctement a toutes les questions !`;
+      theResults = `<span class="parfait">Parfait</span> , Vous avez répondu correctement a toutes les questions ! <br> Votre score : ${rightAnswers}/${cpt}`;
     } else {
       theResults = `<span class="mauvais">Mauvais score , Vous avez eu </span> : ${rightAnswers}/${cpt}`;
     }
@@ -272,9 +272,7 @@ titre = `<h1> <p>Resultats</p> <h2>`;
     resultsContainer.style.margin = "20px";
     resultsContainer.style.marginTop = "0px";
 
-  
 
-    // resultsContainer.innerHTML +='<div class="buttons"> <button class="repbutton">Mes réponses </button> <button class="quitterbutton"> Rejouer </button></div>' ;
   
     
   }
@@ -309,14 +307,16 @@ function showAnswers(questionsObject , cpt , currentIndex) {
     answersArea.remove();
     submitButton.remove();
     bullets.remove();
+    let j ;
    for (let i = 0; i <= questionsObject.length; i++) {
-  resultsContainer.innerHTML+= "<br>"+"<strong>Question</strong> " + i +" : "+questionsObject[i].title +  "<br>";
+    j=i+1;
+  resultsContainer.innerHTML+= "<br>"+"<strong>Question</strong> " + j +" : "+questionsObject[i].title +  "<br>";
   resultsContainer.innerHTML+= "<span> La réponse correcte : </span>"+ questionsObject[i].right_answer + "<br>";
 
   if(rep.reponses[i].status == "faux") {
-    res = '<span class="wrong">' +" fausse" + '</span><i class="fa fa-remove c-wrong"></i>';
+    res = '<span class="wrong">'  + '</span><i class="fa fa-remove c-wrong" style="font-size:30px"></i>';
 } else {
-  res = '<span class="correct">' +" juste" + '</span><i class="fa fa-check c-correct"></i>';
+  res = '<span class="correct">'  + '</span><i class="fa fa-check c-correct" style="font-size:30px"></i>';
 }
   resultsContainer.innerHTML+= "<span>votre réponse est :  </span>"+ rep.reponses[i].repChoisi +' '+res+ "<br>";
 }
