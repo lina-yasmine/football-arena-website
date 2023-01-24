@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+  <row>
+    <title>Quel est le seul joueur à avoir gagné 3 coupes du mondes </title>
+    <answer_1>Lionel Messi</answer_1>
+    <answer_2>Diego Maradona</answer_2>
+    <answer_3>Pelé</answer_3>
+    <answer_4>Johan Cruyff</answer_4>
+    <right_answer>Pelé</right_answer>
+  </row>
+  <row>
+    <title>Quel animal est l’emblème du club de foot le PSG </title>
+    <answer_1>Un chien</answer_1>
+    <answer_2>Un lynx</answer_2>
+    <answer_3>Un renard</answer_3>
+    <answer_4>Un loup</answer_4>
+    <right_answer>Un lynx</right_answer>
+  </row>
+  <row>
+    <title>Dans quel pays s&#x27;est déroulé la première Coupe du Monde en 1930</title>
+    <answer_1>Mexique</answer_1>
+    <answer_2>Brésil</answer_2>
+    <answer_3>Uruguay</answer_3>
+    <answer_4>Angleterre</answer_4>
+    <right_answer>Uruguay</right_answer>
+  </row>
+  <row>
+    <title>Quel pays a remporté la première Coupe du Monde de l’histoire</title>
+    <answer_1>Argentine</answer_1>
+    <answer_2>Uruguay</answer_2>
+    <answer_3>Brésil</answer_3>
+    <answer_4>France</answer_4>
+    <right_answer>Uruguay</right_answer>
+  </row>
+  <row>
+    <title>Combien de fois le Brésil a-t-il remporté la Coupe du Monde </title>
+    <answer_1>3 fois</answer_1>
+    <answer_2>4 fois</answer_2>
+    <answer_3>5 fois</answer_3>
+    <answer_4>6 fois</answer_4>
+    <right_answer>5 fois</right_answer>
+  </row>
+  <row>
+    <title>En 2017, pour quel montant record, Neymar est-il transféré à Paris</title>
+    <answer_1>139 Millions d&#x27;Euros</answer_1>
+    <answer_2>237 Millions d&#x27;Euros</answer_2>
+    <answer_3>189 Millions d&#x27;Euros</answer_3>
+    <answer_4>222 Millions d&#x27;Euros</answer_4>
+    <right_answer>222 Millions d&#x27;Euros</right_answer>
+  </row>
+  <row>
+    <title>Quels clubs ont dominé l&#x27;Europa League entre 2010 et 2015</title>
+    <answer_1>Belges</answer_1>
+    <answer_2>italiens</answer_2>
+    <answer_3>Espagnoles</answer_3>
+    <answer_4>Allemands</answer_4>
+    <right_answer>Espagnoles</right_answer>
+  </row>
+  <row>
+    <title>Quels frères se sont fait face en finale de League Cup 2016 </title>
+    <answer_1>Cissé</answer_1>
+    <answer_2>Touré</answer_2>
+    <answer_3>Pardo</answer_3>
+    <answer_4>Koutris</answer_4>
+    <right_answer>Touré</right_answer>
+  </row>
+  <row>
+    <title>Combien de championnats d&#x27;Espagne a remporté Carles Puyol</title>
+    <answer_1>Quatre</answer_1>
+    <answer_2>Cinq</answer_2>
+    <answer_3>Six</answer_3>
+    <answer_4>Sept</answer_4>
+    <right_answer>Six</right_answer>
+  </row>
+  <row>
+    <title>Quel club a recruté Fernandinho en 2013 et Fernando en 2014 </title>
+    <answer_1>Arsenal</answer_1>
+    <answer_2>Chelsea</answer_2>
+    <answer_3>Liverpool</answer_3>
+    <answer_4>Manchester city</answer_4>
+    <right_answer>Manchester city</right_answer>
+  </row>
+</root>

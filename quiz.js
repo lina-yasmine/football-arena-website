@@ -7,8 +7,7 @@ let answersArea = document.querySelector(".answers-area");
 let submitButton = document.querySelector(".submit-button");
 let resultsContainer = document.querySelector(".results");
 let countdownElement = document.querySelector(".countdown");
-// let repButton = document.querySelector(".repbutton");
-// let quitterButton = document.querySelector(".quitterbutton");
+
 
 
 let currentIndex = 0;
@@ -79,59 +78,39 @@ function getQuestions() {
       let questionsObject = JSON.parse(this.responseText);
       let qCpt = questionsObject.length;
  
-      // Create Bullets + Set Questions Count
       createBullets(qCpt);
 
-      // Add Question Data
       addQuestionData(questionsObject[currentIndex], qCpt);
+      countdown(30, qCpt);
 
-      // Start CountDown
-      countdown(10, qCpt);
-
-      // Click On Submit
       submitButton.onclick = () => {
         
         let i = currentIndex;
-        // Get Right Answer
         let theRightAnswer = questionsObject[currentIndex].right_answer;
-
-        // Increase Index
         currentIndex++;
-
-        // Check The Answer
-    
         checkAnswer(questionsObject,theRightAnswer,i);
 
-        // Remove Previous Question
         quizArea.innerHTML = "";
         answersArea.innerHTML = "";
 
-        // Add Question Data
         addQuestionData(questionsObject[currentIndex], qCpt);
-
-        // Handle Bullets Class
         handleBullets();
 
-        // Start CountDown
         clearInterval(countdownInterval);
-        countdown(10, qCpt);
+        countdown(30, qCpt);
 
-        // Show Results
         showResults(qCpt);
         showAnswers(questionsObject , qCpt , currentIndex);
         
       };
      
-    //   quitterButton.onclick = () => {
-    //   showAnswers(questionsObject);
-    // }
     }
     
   };
 
   myRequest.open("GET", "html_questions.json", true);
   myRequest.send();
-  // showAnswers(qCpt);
+
 }
 
 getQuestions();
@@ -140,74 +119,50 @@ getQuestions();
 function createBullets(num) {
   countSpan.innerHTML = num;
 
-  // Create Spans
   for (let i = 0; i < num; i++) {
-    // Create Bullet
     let theBullet = document.createElement("span");
 
-    // Check If Its First Span
     if (i === 0) {
       theBullet.className = "on";
     }
 
-    // Append Bullets To Main Bullet Container
     bulletsSpanContainer.appendChild(theBullet);
   }
 }
 
 function addQuestionData(obj, count) {
   if (currentIndex < count) {
-    // Create H2 Question Title
     let questionTitle = document.createElement("h2");
-
-    // Create Question Text
     let questionText = document.createTextNode(obj["title"]);
-
-    // Append Text To H2
     questionTitle.appendChild(questionText);
-
-    // Append The H2 To The Quiz Area
     quizArea.appendChild(questionTitle);
 
-    // Create The Answers
     for (let i = 1; i <= 4; i++) {
-      // Create Main Answer Div
+
       let mainDiv = document.createElement("div");
 
-      // Add Class To Main Div
+
       mainDiv.className = "answer";
 
-      // Create Radio Input
+
       let radioInput = document.createElement("input");
 
-      // Add Type + Name + Id + Data-Attribute
       radioInput.name = "question";
       radioInput.type = "radio";
       radioInput.id = `answer_${i}`;
       radioInput.dataset.answer = obj[`answer_${i}`];
 
-      // Make First Option Selected
       if (i === 1) {
         radioInput.checked = true;
       }
 
-      // Create Label
+
       let theLabel = document.createElement("label");
-
-      // Add For Attribute
       theLabel.htmlFor = `answer_${i}`;
-
-      // Create Label Text
       let theLabelText = document.createTextNode(obj[`answer_${i}`]);
-
-      // Add The Text To Label
       theLabel.appendChild(theLabelText);
-
-      // Add Input + Label To Main Div
       mainDiv.appendChild(radioInput);
       mainDiv.appendChild(theLabel);
-
-      // Append All Divs To Answers Area
       answersArea.appendChild(mainDiv);
     }
   }
@@ -222,8 +177,6 @@ function checkAnswer(questionsObject,rAnswer,currentIndex) {
       theChoosenAnswer = answers[i].dataset.answer;
       console.log("le i",i)
       rep.reponses[currentIndex].repChoisi=answers[i].dataset.answer;
-      // rep.reponses[currentIndex].rAnswer=rAnswer;
-      // rep.reponses[currentIndex].question=questionsObject[currentIndex].title;
       
     }
   }
@@ -324,4 +277,3 @@ function showAnswers(questionsObject , cpt , currentIndex) {
   }
  
 }
-

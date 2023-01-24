@@ -5,12 +5,10 @@
   box-sizing: border-box;
 }
 body {
-  /* font-family: Tahoma, Arial; */
   font-family: 'Poppins', sans-serif;
   background-color: rgb(5,33,56);
   background-image : url("5205447.jpg") ;
   background-size:cover;
-  /* background-image: linear-gradient(315deg, #184E77 0%, #34A0A4 100%); */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -82,9 +80,7 @@ input[type="Radio"]
   cursor: pointer;
   border-radius: 6px;
 }
-/* .quiz-app .submit-button:focus {
-  outline: none;
-} */
+
 .submit-button:hover{
   background-color: #168AAD;
 }
@@ -130,7 +126,8 @@ nav{
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-  background-color: rgb(5,33,56);
+  background-color: transparent;
+  /* background-color: rgb(5,33,56); */
 	padding: 0% 15% 0% 15%;
 	display: flex;
 	flex-wrap: wrap;
@@ -146,7 +143,7 @@ nav ul{
 nav ul li{
 	display: inline-block;
 }
-nav ul li a{
+#q , nav ul li a{
   text-decoration: none;
   color:  white;
   font-size: 15px;
@@ -180,6 +177,12 @@ nav ul li a:hover{
 {
   background-image: url("banner.png");
   overflow: scroll;
+}
+#q
+{
+  color: white;
+	background-color:  rgb(96,215,166);
+ 
 }
  /* .repbutton , .quitterbutton {
    margin: 0 10px;
