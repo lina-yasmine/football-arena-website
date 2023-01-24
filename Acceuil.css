@@ -1,0 +1,84 @@
+* {
+    box-sizing: border-box;
+  }
+  
+body {
+  margin-top: 80px;
+  background-color: rgb(5,33,56);
+  background-image : url("images/5205447.jpg") ;
+  background-size:cover;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#ac {
+  color: white;
+  background-color: rgb(96,215,166);
+  border-radius: 10px;
+}
+
+#acc{
+  background-image: url("images/banner.png");
+  background-repeat: no-repeat;
+  background-size: 60%;
+  background-position: right ;
+  margin : 80px;
+  overflow: auto;
+}
+.acceuill{
+  color: rgb(112, 189, 140);
+  text-align: left;
+  margin: 150px 650px 150px 0;
+  width: 100%;
+}
+
+.acceuill button{
+  color:#fff ;
+  background: rgb(96,215,166);
+  margin: 0 120px;
+  height: 45px;
+  padding: 0 20px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  border-radius: 7px;
+  transition: all 0.3s ease;  
+}
+
+.acceuill button:hover{
+   color:  rgb(96,215,166);
+   background: #fff;
+ }
+
+ .acceuill h1 {
+  color: #fff;
+  text-align: left;
+}
+
+.acceuill h3 {
+  color: rgb(96,215,166);
+  text-align: left;
+
+}
+#ac {
+    color: white;
+    background-color: rgb(96,215,166);
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 800px){
+  #acc{
+    margin: 150px 80px;
+    background-size: 100%;
+  }
+  .acceuill {
+    margin: 500px 0 100px 0;
+  }
+}
+

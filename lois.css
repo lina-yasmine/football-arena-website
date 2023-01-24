@@ -1,0 +1,103 @@
+body{
+  background-color: rgb(5,33,56);
+  color: white;
+}
+
+h1{
+  width: 90%;
+  margin: auto;
+  text-align: center;
+  padding: 20px;
+  color: rgb(96,215,166);
+}
+
+main{
+  width: 90%;
+  margin: auto;
+  padding-top: 70px;
+}
+
+#lois{
+  color: white;
+  background-color: rgb(96,215,166);
+  border-radius: 10px;
+}
+
+.section-nv1, .section-nv2{
+  padding: 1%;
+}
+
+section header{
+  color: rgb(96,215,166);
+}
+
+ol li{
+  color: rgb(96,215,166);
+  list-style-type: none;
+  padding: .5% 0;
+}
+
+ol li p{
+  color: white;
+  padding-left: 1%;
+  display: inline;
+  font-weight: normal;
+}
+
+/* #img1{ 
+  float: right;
+  padding-top: -20px;
+  padding-bottom: 3%;
+  padding-left: 8%;
+  padding-right: 4%;
+  width: 40%;		  
+} */
+/* #img2{ 
+  float: right;
+  padding-top: 70px;
+  padding-bottom: 6%;
+  padding-left: 8%;
+  padding-right: 4%;
+  width: 40%; 
+  border-radius: 50%;	 
+}
+
+#img3{ 
+  float: right;
+  padding-top: 40px;
+  padding-bottom: 6%;
+  padding-left: 8%;
+  padding-right: 4%;
+  width: 45%; 
+  border-radius: 50%;	 
+} */
+
+.two-parts{
+  display: flex;
+  gap: 10%;
+}
+
+section header{
+  color: rgb(96,215,166);
+}
+
+.part2 img{
+  width: 250px;
+}
+
+@media screen and (max-width: 1010px){
+
+  img{
+    width: 100%;
+}
+.two-parts{
+    flex-direction: column;
+}
+.part2 {
+    margin: auto;
+    padding: 5% 0;
+}
+main{
+    margin-top: 200px;
+}
+}

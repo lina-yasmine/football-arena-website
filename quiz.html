@@ -4,29 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz Football</title>
+    <link rel="stylesheet" href="style_commun.css">
     <link rel="stylesheet" href="quiz.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
+  
   <body id="quizpage">
-    <nav>
-      <ul>
-          <li><a href="./Acceuil.html">Page d'acceuil</a> </li>
-          <li><a href="./Historique.html">Historique</a> </li>
-          <li><a href="./Hommages.html">Règles du jeu</a> </li>
-          <li><a href="./Informations_importantes.html">Acctualités</a> </li>
-          <li id="q"><a href="./quiz.html">Quiz</a> </li>
-      </ul>
-    </nav>
+    <header>
+      <nav>
+        <ul>
+            <li><a href="./Acceuil.html">Page d'acceuil</a> </li>
+            <li><a href="./Historique.html">Historique</a> </li>
+            <li><a href="./les lois de jeu .html">Règles du jeu</a> </li>
+            <li><a href="./actualities.html">Scores</a> </li>
+            <li ><a id="qui" href="./quiz.html">Quiz</a> </li>
+        </ul>
+      </nav>
+    </header>
+
+
     <div class="quiz-app">
       <div class="bienvenu"></div>
-        <div class="bullets">
+        <div class="bulle">
             <div class="spans"></div>
             <div class="countdown"></div>
           </div>  
       <div class="quiz-area"></div>
       <div class="answers-area"></div>
-      <button class="submit-button">Submit Answer</button>
-      <div class="count"><span></span></div>
+      <button class="submit-button">Soumettre</button>
+      <!-- <div class="count"><span></span></div> -->
       <div class="results"></div>
     </div>
     <script src="quiz.js"></script>

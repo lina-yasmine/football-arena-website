@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<actualites>
+
+	<match>
+
+		<importance>Finale</importance>
+		<equipe>
+			<nom>Argentine</nom>
+			<drapeau>flags/argentine.png</drapeau>
+
+			<score>
+				<final>4</final>
+				<null>3</null>
+			</score>
+
+			<but>
+				<joueur>Messi L.</joueur>
+				<minute>23</minute>
+			</but>
+			<but>
+				<joueur>Di Maria A.</joueur>
+				<minute>36</minute>
+			</but>
+			<but>
+				<joueur>Messi L.</joueur>
+				<minute>108</minute>
+			</but>
+
+			<pinalty>
+				<joueur>Messi L.</joueur>
+				<etat>marqué</etat>
+			</pinalty>
+			<pinalty>
+				<joueur>Dybala P.</joueur>
+				<etat>marqué</etat>
+			</pinalty>
+			<pinalty>
+				<joueur>Paredes L.</joueur>
+				<etat>marqué</etat>
+			</pinalty>
+			<pinalty>
+				<joueur>Montiel G.</joueur>
+				<etat>marqué</etat>
+			</pinalty>
+
+		</equipe>
+
+		<equipe>
+			<nom>France</nom>
+			<drapeau>flags/france.png</drapeau>
+			<score>
+				<final>2</final>
+				<null>3</null>
+			</score>
+			<but>
+				<joueur>Mbappé K.</joueur>
+				<minute>80</minute>
+			</but>
+			<but>
+				<joueur>Mbappé K.</joueur>
+				<minute>81</minute>
+			</but>
+			<but>
+				<joueur>Mbappé K.</joueur>
+				<minute>118</minute>
+			</but>
+
+			<pinalty>
+				<joueur>Mbappé K.</joueur>
+				<etat>marqué</etat>
+			</pinalty>
+			<pinalty>
+				<joueur>Coman K.</joueur>
+				<etat>raté</etat>
+			</pinalty>
+			<pinalty>
+				<joueur>Tchouameni A.</joueur>
+				<etat>raté</etat>
+			</pinalty>
+			<pinalty>
+				<joueur>Kolo Muani R.</joueur>
+				<etat>marqué</etat>
+			</pinalty>
+		</equipe>
+
+	</match>
+
+	<match>
+
+		<importance>3e place</importance>
+		<equipe>
+			<nom>Croatie</nom>
+			<drapeau>flags/croatie.png</drapeau>
+			<score>
+				<final>2</final>
+			</score>
+			<but>
+				<joueur>Gvardiol J.</joueur>
+				<minute>7</minute>
+			</but>
+			<but>
+				<joueur>Orsic M.</joueur>
+				<minute>42</minute>
+			</but>
+		</equipe>
+
+		<equipe>
+			<nom>Maroc</nom>
+			<drapeau>flags/maroc.png</drapeau>
+			<score>
+				<final>1</final>
+			</score>
+			<but>
+				<joueur>Dari A.</joueur>
+				<minute>9</minute>
+			</but>
+		</equipe>
+
+	</match>
+
+	<match>
+
+		<importance>Demi-final</importance>
+		<equipe>
+			<nom>France</nom>
+			<drapeau>flags/france.png</drapeau>
+			<score>
+				<final>2</final>
+			</score>
+			<but>
+				<joueur>Hernandez T.</joueur>
+				<minute>5</minute>
+			</but>
+			<but>
+				<joueur>Kolo Muani R.</joueur>
+				<minute>79</minute>
+			</but>
+		</equipe>
+
+		<equipe>
+			<nom>Maroc</nom>
+			<drapeau>flags/maroc.png</drapeau>
+			<score>
+				<final>0</final>
+			</score>
+		</equipe>
+
+	</match>
+
+	<match>
+		<importance>Demi-final</importance>
+		<equipe>
+			<nom>Argentine</nom>
+			<drapeau>flags/argentine.png</drapeau>
+			<score>
+				<final>3</final>
+			</score>
+			<but>
+				<joueur>Messi L.</joueur>
+				<minute>34</minute>
+			</but>
+			<but>
+				<joueur>Alvarez J.</joueur>
+				<minute>39</minute>
+			</but>
+			<but>
+				<joueur>Alvarez J.</joueur>
+				<minute>69</minute>
+			</but>
+		</equipe>
+
+		<equipe>
+			<nom>Croatie</nom>
+			<drapeau>flags/croatie.png</drapeau>
+			<score>
+				<final>0</final>
+			</score>
+		</equipe>
+
+	</match>
+
+	<match>
+		<importance>Quart de final</importance>
+		<equipe>
+			<nom>Angleterre</nom>
+			<drapeau>flags/angleterre.png</drapeau>
+			<score>
+				<final>1</final>
+			</score>
+			<but>
+				<joueur>Kane H.</joueur>
+				<minute>54</minute>
+			</but>
+		</equipe>
+
+		<equipe>
+			<nom>France</nom>
+			<drapeau>flags/france.png</drapeau>
+			<score>
+				<final>2</final>
+			</score>
+			<but>
+				<joueur>Tchouameni A.</joueur>
+				<minute>17</minute>
+			</but>
+			
+			<but>
+				<joueur>Giroud O.</joueur>
+				<minute>78</minute>
+			</but>
+		</equipe>
+
+	</match>
+
+	<match>
+		<importance>Quart de finale</importance>
+		<equipe>
+			<nom>Maroc</nom>
+			<drapeau>flags/maroc.png</drapeau>
+			<score>
+				<final>1</final>
+			</score>
+			<but>
+				<joueur>En Nesyri Y.</joueur>
+				<minute>42</minute>
+			</but>
+		</equipe>
+
+		<equipe>
+			<nom>Portugal</nom>
+			<drapeau>flags/portugal.png</drapeau>
+			<score>
+				<final>0</final>
+			</score>
+		</equipe>
+
+	</match>
+
+	<match>
+		<importance>Quart de finale</importance>
+		<equipe>
+			<nom>Pays-Bas</nom>
+			<drapeau>flags/pays-bas.png</drapeau>
+			<score>
+				<final>3</final>
+				<null>2</null>
+			</score>
+			<but>
+				<joueur>Weghorst W.</joueur>
+				<minute>83</minute>
+			</but>
+			<but>
+				<joueur>Weghorst W.</joueur>
+				<minute>90+11</minute>
+			</but>
+
+			<pinalty>
+				<joueur>van Dijk V.</joueur>
+				<etat>raté</etat>
+			</pinalty>
+			<pinalty>
+				<joueur>Berghuis S.</joueur>
+				<etat>raté</etat>
+			</pinalty>
+			<pinalty>
+				<joueur>Koopmeiners T.</joueur>
+				<etat>marqué</etat>
+			</pinalty>
+			<pinalty>
+				<joueur>Weghorst W.</joueur>
+				<etat>marqué</etat>
+			</pinalty>
+			<pinalty>
+				<joueur>de Jong L.</joueur>
+				<etat>marqué</etat>
+			</pinalty>
+		</equipe>
+
+		<equipe>
+			<nom>Argentine</nom>
+			<drapeau>flags/argentine.png</drapeau>
+			<score>
+				<final>4</final>
+				<null>2</null>
+			</score>
+			<but>
+				<joueur>Molina N.</joueur>
+				<minute>35</minute>
+			</but>
+			<but>
+				<joueur>Messi L.</joueur>
+				<minute>73</minute>
+			</but>
+
+			<pinalty>
+				<joueur>Messi L.</joueur>
+				<etat>marqué</etat>
+			</pinalty>
+			<pinalty>
+				<joueur>Paredes L.</joueur>
+				<etat>marqué</etat>
+			</pinalty>
+			<pinalty>
+				<joueur>Montiel G.</joueur>
+				<etat>marqué</etat>
+			</pinalty>
+			<pinalty>
+				<joueur>Fernandez E.</joueur>
+				<etat>raté</etat>
+			</pinalty>
+			<pinalty>
+				<joueur>Martinez La.</joueur>
+				<etat>marqué</etat>
+			</pinalty>
+		</equipe>
+
+	</match>
+
+	<match>
+		<importance>Quart de finale</importance>
+		<equipe>
+			<nom>Croatie</nom>
+			<drapeau>flags/croatie.png</drapeau>
+			<score>
+				<final>4</final>
+				<null>1</null>
+			</score>
+			<but>
+				<joueur>Petkovic B.</joueur>
+				<minute>117</minute>
+			</but>
+
+			<pinalty>
+				<joueur>Vlasic N.</joueur>
+				<etat>marqué</etat>
+			</pinalty>
+			<pinalty>
+				<joueur>Majer L.</joueur>
+				<etat>marqué</etat>
+			</pinalty>
+			<pinalty>
+				<joueur>Modric L.</joueur>
+				<etat>marqué</etat>
+			</pinalty>
+			<pinalty>
+				<joueur>Orsic M.</joueur>
+				<etat>marqué</etat>
+			</pinalty>
+		</equipe>
+
+		<equipe>
+			<nom>Brézil</nom>
+			<drapeau>flags/brezil.png</drapeau>
+			<score>
+				<final>2</final>
+				<null>1</null>
+			</score>
+			<but>
+				<joueur>Neymar</joueur>
+				<minute>105+1</minute>
+			</but>
+
+			<pinalty>
+				<joueur>Rodrygo</joueur>
+				<etat>raté</etat>
+			</pinalty>
+			<pinalty>
+				<joueur>Casemiro</joueur>
+				<etat>marqué</etat>
+			</pinalty>
+			<pinalty>
+				<joueur>Pedro</joueur>
+				<etat>marqué</etat>
+			</pinalty>
+			<pinalty>
+				<joueur>Marquinhos</joueur>
+				<etat>raté</etat>
+			</pinalty>
+		</equipe>
+
+	</match>
+
+	<match>
+		<importance>1/8 de finale</importance>
+		<equipe>
+			<nom>Portugal</nom>
+			<drapeau>flags/portugal.png</drapeau>
+			<score>
+				<final>6</final>
+			</score>
+			<but>
+				<joueur>Ramos G.</joueur>
+				<minute>17</minute>
+			</but>
+			<but>
+				<joueur>Pepe</joueur>
+				<minute>33</minute>
+			</but>
+			<but>
+				<joueur>Ramos G.</joueur>
+				<minute>51</minute>
+			</but>
+			<but>
+				<joueur>Guerreiro R.</joueur>
+				<minute>55</minute>
+			</but>
+			<but>
+				<joueur>Ramos G.</joueur>
+				<minute>67</minute>
+			</but>
+			<but>
+				<joueur>Leao R.</joueur>
+				<minute>90+2</minute>
+			</but>
+		</equipe>
+
+		<equipe>
+			<nom>Suisse</nom>
+			<drapeau>flags/suisse.png</drapeau>
+			<score>
+				<final>1</final>
+			</score>
+			<but>
+				<joueur>Akanji M.</joueur>
+				<minute>58</minute>
+			</but>
+		</equipe>
+
+	</match>
+
+	<match>
+		<importance>1/8 de finale</importance>
+		<equipe>
+			<nom>Maroc</nom>
+			<drapeau>flags/maroc.png</drapeau>
+			<score>
+				<final>3</final>
+				<null>0</null>
+			</score>
+
+			<pinalty>
+				<joueur>Sabiri A.</joueur>
+				<etat>marqué</etat>
+			</pinalty>
+			<pinalty>
+				<joueur>Ziyech H.</joueur>
+				<etat>marqué</etat>
+			</pinalty>
+			<pinalty>
+				<joueur>Benoun B.</joueur>
+				<etat>raté</etat>
+			</pinalty>
+			<pinalty>
+				<joueur>Hakimi A.</joueur>
+				<etat>marqué</etat>
+			</pinalty>
+		</equipe>
+
+		<equipe>
+			<nom>Espagne</nom>
+			<drapeau>flags/espagne.png</drapeau>
+			<score>
+				<final>0</final>
+				<null>0</null>
+			</score>
+
+			<pinalty>
+				<joueur>Sarabia P.</joueur>
+				<etat>raté</etat>
+			</pinalty>
+			<pinalty>
+				<joueur>Soler C.</joueur>
+				<etat>raté</etat>
+			</pinalty>
+			<pinalty>
+				<joueur>Busquets S.</joueur>
+				<etat>raté</etat>
+			</pinalty>
+		</equipe>
+
+	</match>
+
+	
+
+	
+
+</actualites>

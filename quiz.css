@@ -4,16 +4,20 @@
 * {
   box-sizing: border-box;
 }
-body {
+nav{
+  background-color: transparent !important;
+}
+#quizpage {
   font-family: 'Poppins', sans-serif;
   background-color: rgb(5,33,56);
-  background-image : url("5205447.jpg") ;
+  background-image : url("images/5205447.jpg") ;
   background-size:cover;
+  /* background-image: linear-gradient(315deg, #184E77 0%, #34A0A4 100%); */
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  overflow: hidden;
+  overflow: auto;
 }
 .quiz-app {
   margin-top: 50px;
@@ -22,9 +26,19 @@ body {
   border-radius: 10px;
   box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.1);
   width: 550px;
-  overflow: hidden;
+  overflow-y: scroll;
   max-height: 500px;
-  overflow: scroll;
+
+  /*pour masquer la barre de scroll sur firefox*/
+  -ms-overflow-style: none; 
+  
+  /*pour masquer la barre de scroll sur firefox*/ 
+  scrollbar-width: none;  
+}
+
+.quiz-app::-webkit-scrollbar {
+   /*pour masquer la barre de scroll sur chrome*/
+  display: none;
 }
 
 .quiz-app .count {
@@ -35,7 +49,6 @@ body {
   padding-top: 5px;
   padding-bottom: 20px;
   padding-left: 15px;
-  overflow: scroll;
 }
 .quiz-app .quiz-area h2 {
   margin: 0;
@@ -43,12 +56,10 @@ body {
 .quiz-app .answers-area {
   background-color: #fff;
   padding: 0 20px 20px;
-  overflow: scroll;
 }
 .quiz-app .answers-area .answer {
   background-color: #f9f9f9;
   padding: 15px;
-  overflow: scroll;
 }
 .quiz-app .answers-area .answer input[type="Radio"]:checked + label {
   color: #184e77;
@@ -57,7 +68,6 @@ body {
 input[type="Radio"]
 {
   accent-color: grey;
-  
 }
 .quiz-app .answers-area .answer label {
   cursor: pointer;
@@ -84,28 +94,24 @@ input[type="Radio"]
 .submit-button:hover{
   background-color: #168AAD;
 }
-.quiz-app .bullets {
+.quiz-app .bulle {
   background-color: rgba(255, 255, 255, 0.526);
   display: flex;
   padding: 20px;
 }
-.quiz-app .bullets .spans {
+.quiz-app .bulle .spans {
   flex: 1;
   display: flex;
 }
-.quiz-app .bullets .spans span {
+.quiz-app .bulle .spans span {
   width: 20px;
   height: 20px;
   background-color: #ddd;
   margin-right: 5px;
   border-radius: 50%;
 }
-.quiz-app .bullets .spans span.on {
+.quiz-app .bulle .spans span.on {
   background-color: #41e6ab;
-}
-
-.quiz-app .results {
-overflow: scroll;
 }
 
 .quiz-app .results span {
@@ -121,40 +127,10 @@ overflow: scroll;
   color: #0075ff;
 }
 
-nav{
-  vertical-align: top;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-  background-color: transparent;
-  /* background-color: rgb(5,33,56); */
-	padding: 0% 15% 0% 15%;
-	display: flex;
-	flex-wrap: wrap;
-	top: 0;
-	right: 0;
-	position: fixed;
-	z-index: 20;
-	width: 100%;	
-}
-nav ul{
-	list-style: none;
-}
-nav ul li{
-	display: inline-block;
-}
-#q , nav ul li a{
-  text-decoration: none;
-  color:  white;
-  font-size: 15px;
-	padding: 5px 30px;
-	display: inline-block;
+ #qui {
+  color: white;
+  background-color: rgb(96,215,166);
   border-radius: 10px;
-	transition: 0.8s;
-}
-nav ul li a:hover{
-    color: white;
-	background-color:  rgb(96,215,166);
 }
  .results span.wrong {
   color:#dc0a0a;
@@ -173,42 +149,16 @@ nav ul li a:hover{
   margin-left: 20px;
   color: #00e676;
 }
- #acc
-{
-  background-image: url("banner.png");
-  overflow: scroll;
+
+@media screen and (max-width: 800px){
+  .quiz-app{
+    margin-top: 200px;
+    max-height : 350px;
+  }
 }
-#q
-{
-  color: white;
-	background-color:  rgb(96,215,166);
- 
+@media screen and (max-height: 550px) {
+  .quiz-app{
+    margin-top: 300px;
+    max-height : 350px;
+  }
 }
- /* .repbutton , .quitterbutton {
-   margin: 0 10px;
-   height: 45px;
-   padding: 0 20px;
-   font-size: 18px;
-   font-weight: 500;
-   cursor: pointer;
-   border: none;
-   outline: none;
-   border-radius: 6px;
-   border: 1px solid #007bff;
-   transition: all 0.3s ease;
-}
-.quitterbutton{
-  color: #007bff;
-    background: #fff;
-}
-.quitterbutton:hover{
-  color: #fff;
-  background: #007bff;
-}
-.repbutton{
-  color: #fff;
-   background: #007bff; 
-}
-.repbutton:hover{
-  background: #0263ca;
-} */

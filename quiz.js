@@ -1,7 +1,7 @@
-// Select Elements
+// Selectionner les elements
 let countSpan = document.querySelector(".count span");
-let bullets = document.querySelector(".bullets");
-let bulletsSpanContainer = document.querySelector(".bullets .spans");
+let bullets = document.querySelector(".bulle");
+let bulletsSpanContainer = document.querySelector(".bulle .spans");
 let quizArea = document.querySelector(".quiz-area");
 let answersArea = document.querySelector(".answers-area");
 let submitButton = document.querySelector(".submit-button");
@@ -14,93 +14,102 @@ let currentIndex = 0;
 let rightAnswers = 0;
 let countdownInterval;
 
-
+// sauvgarder les réponses de l'utilisateur et le status de sa réponse (vrai/faux)
 var rep = { "reponses" : [
 	{
-		"id" : 1,
 		"status": "faux",
     "repChoisi" : "",
 	},
 	{
-		"id" : 2,
 		"status": "faux",
     "repChoisi" : "",
 	},
 	{
-		"id" : 3,
 		"status": "faux",
     "repChoisi" : "",
 	},
 	{
-		"id" : 4,
 		"status": "faux",
     "repChoisi" : "",
 	},
 	{
-		"id" : 5,
 		"status": "faux",
     "repChoisi" : "",
 	},
 	{
-		"id" : 6,
 		"status": "faux",
     "repChoisi" : "",
 	},
 	{
-		"id" : 7,
 		"status": "faux",
     "repChoisi" : "",
 	},
 	{
-		"id" : 8,
 		"status": "faux",
     "repChoisi" : "",
 	},
 	{
-		"id" : 9,
 		"status": "faux",
     "repChoisi" : "",
 	},
 	{
-		"id" : 10,
 		"status": "faux",
     "repChoisi" : "",
 	},
 
 	]
 }
-
+// fonction pour ramener les données avec ajax
 function getQuestions() {
-  let myRequest = new XMLHttpRequest();
 
+  var myRequest;
+
+  if (window.XMLHttpRequest) {//navigateurs récents
+    myRequest= new XMLHttpRequest();
+    } else {
+    // code for IE6, IE5
+    myRequest = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    
   myRequest.onreadystatechange = function () {
     if (this.readyState === 4 && this.status === 200) {
-      let questionsObject = JSON.parse(this.responseText);
-      let qCpt = questionsObject.length;
- 
-      createBullets(qCpt);
+      let questionsObject = myRequest.responseXML;
+      var answs = questionsObject.getElementsByTagName("row"); 
+      let qCpt = answs.length;
+   
 
-      addQuestionData(questionsObject[currentIndex], qCpt);
+ // fonction pour crée les bulles verts en haut qui indiquent le nb de questions 
+      creeBulles(qCpt);
+  // ajouter une questions avec ses réponses
+      addQuestionData(answs[currentIndex], qCpt);
+
+      // compteur à rebout 30s
       countdown(30, qCpt);
-
+//bouton soumettre
       submitButton.onclick = () => {
         
         let i = currentIndex;
-        let theRightAnswer = questionsObject[currentIndex].right_answer;
+        // récuperer la réponse correcte depuis le fichier xml
+        let theRightAnswer = answs[currentIndex].getElementsByTagName("right_answer")[0].childNodes[0].nodeValue;
+        //incrémenter l'index
         currentIndex++;
-        checkAnswer(questionsObject,theRightAnswer,i);
+//checker si la réponses est juste ou fausse en la comparant avec la réponse juste qu'on a récuperer
+        checkAnswer(theRightAnswer,i);
 
+// vider la page pour mettre la prochaine question
         quizArea.innerHTML = "";
         answersArea.innerHTML = "";
-
-        addQuestionData(questionsObject[currentIndex], qCpt);
+// mettre la prochaine question
+        addQuestionData(answs[currentIndex], qCpt);
+//mettre a jour l'indexation des bulles vert
         handleBullets();
-
+// mettre a jour le compteur pour la nouvelle question
         clearInterval(countdownInterval);
         countdown(30, qCpt);
-
+//afficher le résultat
         showResults(qCpt);
-        showAnswers(questionsObject , qCpt , currentIndex);
+//afficher les réponses de l'utilisateur pour chaque question avec la réponse correcte et l'etat de sa réponses (correcte ou fausse)
+        showAnswers(answs , qCpt , currentIndex);
         
       };
      
@@ -108,16 +117,16 @@ function getQuestions() {
     
   };
 
-  myRequest.open("GET", "html_questions.json", true);
+  myRequest.open("GET", "html_questions.xml", true);
   myRequest.send();
 
 }
 
 getQuestions();
 
-
-function createBullets(num) {
-  countSpan.innerHTML = num;
+ // fonction pour crée les bulles verts en haut qui indiquent le nb de questions 
+function creeBulles(num) {
+  // countSpan.innerHTML = num;
 
   for (let i = 0; i < num; i++) {
     let theBullet = document.createElement("span");
@@ -130,36 +139,37 @@ function createBullets(num) {
   }
 }
 
-function addQuestionData(obj, count) {
+function addQuestionData(answs, count) {
   if (currentIndex < count) {
+     // Creer le titre de la question en H2 
     let questionTitle = document.createElement("h2");
-    let questionText = document.createTextNode(obj["title"]);
+    //creer le  texte de la question
+    let questionText = document.createTextNode(answs.getElementsByTagName("title")[0].childNodes[0].nodeValue);
     questionTitle.appendChild(questionText);
     quizArea.appendChild(questionTitle);
 
     for (let i = 1; i <= 4; i++) {
-
+// creer une div pour les reponses
       let mainDiv = document.createElement("div");
 
-
+  // Ajouter une class a la Div
       mainDiv.className = "answer";
 
-
+// creer un radio input
       let radioInput = document.createElement("input");
-
       radioInput.name = "question";
       radioInput.type = "radio";
       radioInput.id = `answer_${i}`;
-      radioInput.dataset.answer = obj[`answer_${i}`];
-
+      radioInput.dataset.answer = answs.getElementsByTagName(`answer_${i}`)[0].childNodes[0].nodeValue;
+// selectionner la premiere option
       if (i === 1) {
         radioInput.checked = true;
       }
 
-
+// creer un label 
       let theLabel = document.createElement("label");
       theLabel.htmlFor = `answer_${i}`;
-      let theLabelText = document.createTextNode(obj[`answer_${i}`]);
+      let theLabelText = document.createTextNode(answs.getElementsByTagName(`answer_${i}`)[0].childNodes[0].nodeValue);
       theLabel.appendChild(theLabelText);
       mainDiv.appendChild(radioInput);
       mainDiv.appendChild(theLabel);
@@ -168,7 +178,8 @@ function addQuestionData(obj, count) {
   }
 }
 
-function checkAnswer(questionsObject,rAnswer,currentIndex) {
+
+function checkAnswer(rAnswer,currentIndex) {
   let answers = document.getElementsByName("question");
   let theChoosenAnswer;
    
@@ -190,8 +201,10 @@ function checkAnswer(questionsObject,rAnswer,currentIndex) {
   
 }
 
+
+
 function handleBullets() {
-  let bulletsSpans = document.querySelectorAll(".bullets .spans span");
+  let bulletsSpans = document.querySelectorAll(".bulle .spans span");
   let arrayOfSpans = Array.from(bulletsSpans);
   arrayOfSpans.forEach((span, index) => {
     if (currentIndex === index) {
@@ -200,6 +213,8 @@ function handleBullets() {
   });
 }
 
+
+// fonction pour afficher les resultats et le score
 function showResults(cpt) {
   let theResults;
   if (currentIndex === cpt) {
@@ -225,12 +240,10 @@ titre = `<h1> <p>Resultats</p> <h2>`;
     resultsContainer.style.margin = "20px";
     resultsContainer.style.marginTop = "0px";
 
-
-  
-    
   }
 }
 
+// fonction pour le compte a rebouts
 function countdown(duree, cpt) {
   if (currentIndex < cpt) {
     let min, sec;
@@ -253,7 +266,7 @@ function countdown(duree, cpt) {
 
 
 
-function showAnswers(questionsObject , cpt , currentIndex) {
+function showAnswers(qO , cpt , currentIndex) {
 
   if (currentIndex === cpt) {
     quizArea.remove();
@@ -261,11 +274,20 @@ function showAnswers(questionsObject , cpt , currentIndex) {
     submitButton.remove();
     bullets.remove();
     let j ;
-   for (let i = 0; i <= questionsObject.length; i++) {
+   for (let i = 0; i <= qO.length; i++) {
+    // console.log(qO);
+    // le j c'est pour afficher le numéro le la question qui commence à 1
     j=i+1;
-  resultsContainer.innerHTML+= "<br>"+"<strong>Question</strong> " + j +" : "+questionsObject[i].title +  "<br>";
-  resultsContainer.innerHTML+= "<span> La réponse correcte : </span>"+ questionsObject[i].right_answer + "<br>";
+    // récuperer le titre de la question
+    let qi=qO[i].getElementsByTagName("title")[0].childNodes[0].nodeValue;
+    // récuperer la bonne réponse
+    let ra=qO[i].getElementsByTagName("right_answer")[0].childNodes[0].nodeValue;
 
+// les afficher 
+  resultsContainer.innerHTML+= "<br>"+"<strong>Question</strong> " + j +" : "+ qi +  "<br>";
+  resultsContainer.innerHTML+= "<span> La réponse correcte : </span>"+ ra + "<br>";
+
+// afficher une croix rouge si la réponse était fausse sinon un check en vert 
   if(rep.reponses[i].status == "faux") {
     res = '<span class="wrong">'  + '</span><i class="fa fa-remove c-wrong" style="font-size:30px"></i>';
 } else {
@@ -277,3 +299,4 @@ function showAnswers(questionsObject , cpt , currentIndex) {
   }
  
 }
+
